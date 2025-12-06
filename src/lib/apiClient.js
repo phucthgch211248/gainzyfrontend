@@ -15,8 +15,11 @@ function getToken() {
 
 const client = axios.create({
   baseURL: API_BASE_URL,
-  headers: { 'Content-Type': 'application/json' },
   withCredentials: true,
+  headers: {
+    'Content-Type': 'application/json',
+    'ngrok-skip-browser-warning': 'true',
+  }
 });
 
 client.interceptors.request.use((config) => {
